@@ -48,7 +48,7 @@ jobs:
           echo "THEOS=/opt/theos" >> $GITHUB_ENV
           
           # Use the Roothide installer script
-          bash -c "$(curl -fsSL https://raw.githubusercontent.com/roothide/theos/master/bin/install-theos)"
+          git clone --recursive https://github.com/roothide/theos.git /opt/theos
           
           # Install required dependencies for Theos
           brew install ldid xz
