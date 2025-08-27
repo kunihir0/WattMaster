@@ -1,14 +1,62 @@
 Package: com.kunihir0.wattmaster
 Version: 1.0.0
+Architecture: iphoneos-arm64e
+Maintainer: kunihir0
+Installed-Size: 204
+Depends: mobilesubstrate (>= 0.9.5000)
+Filename: ./debs/com.kunihir0.wattmaster-1.0.0-roothide.deb
+Size: 13134
+MD5sum: a50646266aa7ee21a5574651df91b36d
+SHA1: 49a345a0546dea500d87a04dd27a6595a51d7ce4
+SHA256: 51a52dbb2add8a395c2c938231360d4fcbe6410af4f32d774a03ab9c3158e318
+Section: Tweaks
+Description: Wattpad Deshitify with QOL improvements
+Author: kunihir0
+Name: WattMaster
+
+Package: com.kunihir0.wattmaster
+Version: 1.0.0
 Architecture: iphoneos-arm64
 Maintainer: kunihir0
 Installed-Size: 204
 Depends: mobilesubstrate (>= 0.9.5000)
 Filename: ./debs/com.kunihir0.wattmaster-1.0.0-rootless.deb
-Size: 13214
-MD5sum: 204edb9440a2022a7f2802225aea80f9
-SHA1: 558d5d451ce9117b12bf3560dcad6bd6a7210d19
-SHA256: 78ee74539c26c83b3acb2165ce8ee4c4e1feeba43c78fb77ed92b4e07ae7415d
+Size: 13194
+MD5sum: 9daefda4a319652384ce017421c88edb
+SHA1: dfa0b5823716ea728339f31c58fb3a946df12543
+SHA256: 0d288344f8aa9cf2043c5b94b631819735068608113686afcbadb81bd3cd4fbf
+Section: Tweaks
+Description: Wattpad Deshitify with QOL improvements
+Author: kunihir0
+Name: WattMaster
+
+Package: com.kunihir0.wattmaster
+Version: 1.0.0-1+debug
+Architecture: iphoneos-arm64e
+Maintainer: kunihir0
+Installed-Size: 264
+Depends: mobilesubstrate (>= 0.9.5000)
+Filename: ./debs/com.kunihir0.wattmaster-1.0.0-roothide-debug.deb
+Size: 18880
+MD5sum: 7ca9e79a41e55b879fe28d13a548303b
+SHA1: 5bb08c5b9d1778a0008764ae3b741dad0d3f74c3
+SHA256: 56e6054a1f424d73e78905e05e12ad57b8d65e9f5b6ded7c4ea69350ea2ed098
+Section: Tweaks
+Description: Wattpad Deshitify with QOL improvements
+Author: kunihir0
+Name: WattMaster
+
+Package: com.kunihir0.wattmaster
+Version: 1.0.0-1+debug
+Architecture: iphoneos-arm64
+Maintainer: kunihir0
+Installed-Size: 264
+Depends: mobilesubstrate (>= 0.9.5000)
+Filename: ./debs/com.kunihir0.wattmaster-1.0.0-rootless-debug.deb
+Size: 18948
+MD5sum: b9ee04cbb890dbfcd790a94e300fa895
+SHA1: 161e1f7a52306e62e5954a6318d057d33a29e8ca
+SHA256: 27c2a22d65514390342f884265851bb8ddb3bca9c2d5f99c1f850a3b6bd09cff
 Section: Tweaks
 Description: Wattpad Deshitify with QOL improvements
 Author: kunihir0
