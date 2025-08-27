@@ -155,24 +155,18 @@ jobs:
 
           find artifacts -type f -name "*.deb" | while read -r file; do
             if [[ "$file" == *release-rootless.deb ]]; then
-              mv "$file" "../../${PACKAGE_NAME}-${CLEAN_VERSION}-rootless.deb"
+              mv "$file" "${GITHUB_WORKSPACE}/${PACKAGE_NAME}-${CLEAN_VERSION}-rootless.deb"
             elif [[ "$file" == *debug-rootless.deb ]]; then
-              mv "$file" "../../${PACKAGE_NAME}-${CLEAN_VERSION}-rootless-debug.deb"
+              mv "$file" "${GITHUB_WORKSPACE}/${PACKAGE_NAME}-${CLEAN_VERSION}-rootless-debug.deb"
             elif [[ "$file" == *release-roothide.deb ]]; then
-              mv "$file" "../../${PACKAGE_NAME}-${CLEAN_VERSION}-roothide.deb"
+              mv "$file" "${GITHUB_WORKSPACE}/${PACKAGE_NAME}-${CLEAN_VERSION}-roothide.deb"
             elif [[ "$file" == *debug-roothide.deb ]]; then
-              mv "$file" "../../${PACKAGE_NAME}-${CLEAN_VERSION}-roothide-debug.deb"
+              mv "$file" "${GITHUB_WORKSPACE}/${PACKAGE_NAME}-${CLEAN_VERSION}-roothide-debug.deb"
             fi
           done
-          
-          cd ../..
 
           echo "Renamed assets:"
-          ls *.deb
-
-          # Pass file list to next step
-          DEB_FILES=$(ls *.deb | tr '\n' ' ' | sed 's/ $//')
-          echo "FILES=$DEB_FILES" >> $GITHUB_OUTPUT
+          ls -l ${GITHUB_WORKSPACE}/*.deb
 
       - name: Generate changelog
         id: changelog
@@ -201,7 +195,8 @@ jobs:
       - name: Upload release assets
         uses: softprops/action-gh-release@v1
         with:
-          files: ${{ steps.prepare_assets.outputs.FILES }}
+          files: |
+            *.deb
           body_path: release_notes.md
           draft: false
           prerelease: false
