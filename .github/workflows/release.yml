@@ -85,6 +85,7 @@ jobs:
 
           # Build release version (optimized, stripped)
           echo "Building release package for ${{ matrix.scheme }}..."
+          rm -rf packages
           make clean
           make package FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=${{ matrix.scheme }}
           if ls packages/*.deb 1> /dev/null 2>&1; then
@@ -95,6 +96,7 @@ jobs:
 
           # Build debug version (with debug symbols)
           echo "Building debug package for ${{ matrix.scheme }}..."
+          rm -rf packages
           make clean
           make package DEBUG=1 THEOS_PACKAGE_SCHEME=${{ matrix.scheme }}
           if ls packages/*.deb 1> /dev/null 2>&1; then
