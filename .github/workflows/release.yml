@@ -20,7 +20,14 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
-          
+
+      - name: Cache Theos and SDKs
+        id: cache-theos
+        uses: actions/cache@v4
+        with:
+          path: /opt/theos
+          key: ${{ runner.os }}-theos-sdk-v1
+
       - name: Get version from tag
         id: get_version
         run: |
@@ -37,6 +44,7 @@ jobs:
         run: sudo xcodebuild -license accept
         
       - name: Install Theos (Roothide)
+        if: steps.cache-theos.outputs.cache-hit != 'true'
         run: |
           echo "Setting up Theos directory..."
           sudo mkdir -p /opt/theos
@@ -54,6 +62,7 @@ jobs:
           brew install ldid xz
           
       - name: Install iOS SDK
+        if: steps.cache-theos.outputs.cache-hit != 'true'
         run: |
           echo "Installing iOS 16.5 SDK..."
           mkdir -p /opt/theos/sdks
@@ -180,6 +189,9 @@ jobs:
 
           echo "Renamed assets:"
           ls -l ${GITHUB_WORKSPACE}/*.deb
+          
+          FILES=$(ls ${GITHUB_WORKSPACE}/*.deb | xargs -n 1 basename | tr '\n' ' ')
+          echo "FILES=$FILES" >> $GITHUB_OUTPUT
 
       - name: Generate changelog
         id: changelog
@@ -206,7 +218,7 @@ jobs:
           cat release_notes.md
 
       - name: Upload release assets
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: |
             *.deb
