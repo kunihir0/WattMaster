@@ -1,0 +1,312 @@
+name: Automated Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  # Job to build the tweak for each scheme (rootless, roothide)
+  build:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        # Define the build schemes we want to target
+        scheme: [rootless, roothide]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: recursive
+          
+      - name: Get version from tag
+        id: get_version
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/}
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          echo "Building tweak version: $VERSION"
+          
+      - name: Setup Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '15.2'
+          
+      - name: Accept Xcode License
+        run: sudo xcodebuild -license accept
+        
+      - name: Install Theos (Roothide)
+        run: |
+          echo "Installing Theos to /opt/theos..."
+          # The installer script will use this path if THEOS is set
+          export THEOS=/opt/theos
+          echo "THEOS=/opt/theos" >> $GITHUB_ENV
+          
+          # Use the Roothide installer script
+          bash -c "$(curl -fsSL https://raw.githubusercontent.com/roothide/theos/master/bin/install-theos)"
+          
+          # Install required dependencies for Theos
+          brew install ldid xz
+          
+      - name: Install iOS SDK
+        run: |
+          echo "Installing iOS 16.5 SDK..."
+          mkdir -p /opt/theos/sdks
+          cd /opt/theos/sdks
+          curl -L -o iPhoneOS16.5.sdk.tar.xz https://github.com/theos/sdks/releases/download/master-146e41f/iPhoneOS16.5.sdk.tar.xz
+          tar -xf iPhoneOS16.5.sdk.tar.xz
+          rm iPhoneOS16.5.sdk.tar.xz
+          echo "Installed SDKs:"
+          ls -l /opt/theos/sdks/
+          
+      - name: Update version in control file
+        run: |
+          VERSION=${{ steps.get_version.outputs.VERSION }}
+          # Remove 'v' prefix for the control file version
+          CLEAN_VERSION=${VERSION#v}
+          echo "Updating control file with version: $CLEAN_VERSION"
+          sed -i.bak "s/^Version:.*/Version: $CLEAN_VERSION/" control
+          cat control
+          
+      - name: Clean and build tweak (${{ matrix.scheme }})
+        run: |
+          echo "Building tweak for ${{ matrix.scheme }} scheme..."
+          export THEOS=/opt/theos
+          mkdir -p build-artifacts
+
+          # Build release version (optimized, stripped)
+          echo "Building release package for ${{ matrix.scheme }}..."
+          make clean
+          make package FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=${{ matrix.scheme }}
+          if ls packages/*.deb 1> /dev/null 2>&1; then
+            RELEASE_PKG=$(find packages -name "*.deb" -type f | head -1)
+            cp "$RELEASE_PKG" "build-artifacts/release-${{ matrix.scheme }}.deb"
+            echo "Release package for ${{ matrix.scheme }} saved."
+          fi
+
+          # Build debug version (with debug symbols)
+          echo "Building debug package for ${{ matrix.scheme }}..."
+          make clean
+          make package DEBUG=1 THEOS_PACKAGE_SCHEME=${{ matrix.scheme }}
+          if ls packages/*.deb 1> /dev/null 2>&1; then
+            DEBUG_PKG=$(find packages -name "*.deb" -type f | head -1)
+            cp "$DEBUG_PKG" "build-artifacts/debug-${{ matrix.scheme }}.deb"
+            echo "Debug package for ${{ matrix.scheme }} saved."
+          fi
+          
+      - name: Upload build artifacts (${{ matrix.scheme }})
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts-${{ matrix.scheme }}
+          path: build-artifacts/
+
+  # Job to create a single release after all builds are done
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/')
+    permissions:
+      contents: write # Required to create a release
+      
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Needed for changelog generation
+
+      - name: Get version from tag
+        id: get_version
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/}
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          
+      - name: Download all build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts/
+          
+      - name: Prepare and rename release assets
+        id: prepare_assets
+        run: |
+          echo "Preparing release assets..."
+          ls -R artifacts/
+          
+          VERSION=${{ steps.get_version.outputs.VERSION }}
+          CLEAN_VERSION=${VERSION#v}
+          PACKAGE_NAME=$(grep -i '^Package:' control | awk '{print $2}' | tr -d '\r')
+
+          if [[ -z "$PACKAGE_NAME" ]]; then
+            echo "Could not determine package name from control file!"
+            exit 1
+          fi
+
+          echo "Package name: $PACKAGE_NAME"
+          echo "Clean version: $CLEAN_VERSION"
+
+          find artifacts -type f -name "*.deb" | while read -r file; do
+            if [[ "$file" == *release-rootless.deb ]]; then
+              mv "$file" "${PACKAGE_NAME}-${CLEAN_VERSION}-rootless.deb"
+            elif [[ "$file" == *debug-rootless.deb ]]; then
+              mv "$file" "${PACKAGE_NAME}-${CLEAN_VERSION}-rootless-debug.deb"
+            elif [[ "$file" == *release-roothide.deb ]]; then
+              mv "$file" "${PACKAGE_NAME}-${CLEAN_VERSION}-roothide.deb"
+            elif [[ "$file" == *debug-roothide.deb ]]; then
+              mv "$file" "${PACKAGE_NAME}-${CLEAN_VERSION}-roothide-debug.deb"
+            fi
+          done
+
+          echo "Renamed assets:"
+          ls *.deb
+
+          # Pass file list to next step
+          DEB_FILES=$(ls *.deb | tr '\n' ' ' | sed 's/ $//')
+          echo "FILES=$DEB_FILES" >> $GITHUB_OUTPUT
+
+      - name: Generate changelog
+        id: changelog
+        run: |
+          VERSION=${{ steps.get_version.outputs.VERSION }}
+          echo "Generating changelog for version $VERSION"
+          
+          # Try to get changelog from annotated tag message
+          CHANGELOG=$(git tag -l --format='%(contents)' "$VERSION")
+          
+          # If tag message is empty, generate from commit history
+          if [ -z "$CHANGELOG" ]; then
+            PREV_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+            if [[ -n "$PREV_TAG" ]]; then
+              CHANGELOG="**Full Changelog**: https://github.com/${{ github.repository }}/compare/$PREV_TAG...$VERSION"
+              CHANGELOG+=$'\n\n'$(git log --pretty=format:"- %s (%h)" "$PREV_TAG..HEAD")
+            else
+              CHANGELOG="Initial Release"
+            fi
+          fi
+          
+          echo "$CHANGELOG" > release_notes.md
+          echo "Generated changelog:"
+          cat release_notes.md
+
+      - name: Upload release assets
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ${{ steps.prepare_assets.outputs.FILES }}
+          body_path: release_notes.md
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build summary
+        run: |
+          echo "## ✅ Release Created" >> $GITHUB_STEP_SUMMARY
+          echo "**Version:** ${{ steps.get_version.outputs.VERSION }}" >> $GITHUB_STEP_SUMMARY
+          echo "### Uploaded Assets" >> $GITHUB_STEP_SUMMARY
+          for file in ${{ steps.prepare_assets.outputs.FILES }}; do
+            echo "- \`$file\`" >> $GITHUB_STEP_SUMMARY
+          done
+
+  # Job to update the APT repository after the release is created
+  update-apt-repo:
+    needs: release
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    permissions:
+      contents: write # Required to push changes to the gh-pages branch
+      
+    steps:
+      - name: Checkout gh-pages Branch
+        uses: actions/checkout@v4
+        with:
+          ref: 'gh-pages'
+          path: 'repo'
+
+      - name: Get Release Info
+        id: release_info
+        run: |
+          TAG_NAME=${GITHUB_REF#refs/tags/}
+          echo "Fetching release info for tag: $TAG_NAME"
+          
+          RELEASE_DATA=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/releases/tags/$TAG_NAME")
+            
+          # Look for the main rootless release .deb file
+          DEB_URL=$(echo "$RELEASE_DATA" | jq -r '.assets[] | select(.name | endswith("-rootless.deb")) | .browser_download_url')
+          
+          if [ -z "$DEB_URL" ] || [ "$DEB_URL" = "null" ]; then
+            echo "No rootless release .deb file found in the release assets."
+            echo "Available assets:"
+            echo "$RELEASE_DATA" | jq -r '.assets[] | "- " + .name'
+            exit 1
+          fi
+          
+          echo "deb_url=$DEB_URL" >> $GITHUB_OUTPUT
+
+          # Extract release body for changelog
+          RELEASE_BODY=$(echo "$RELEASE_DATA" | jq -r '.body // ""')
+          echo "release_body<<EOF" >> $GITHUB_OUTPUT
+          echo "$RELEASE_BODY" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Download .deb from Release
+        run: |
+          echo "Downloading .deb from ${{ steps.release_info.outputs.deb_url }}"
+          mkdir -p repo/debs
+          curl -L "${{ steps.release_info.outputs.deb_url }}" -o "repo/debs/$(basename "${{ steps.release_info.outputs.deb_url }}")"
+
+      - name: Update Sileo Depiction File
+        run: |
+          if [ -f "repo/sileo-depiction.json" ]; then
+            echo "Updating sileo-depiction.json..."
+            TAG_NAME=${GITHUB_REF#refs/tags/}
+            VERSION=${TAG_NAME#v}
+            CHANGELOG_BODY="${{ steps.release_info.outputs.release_body }}"
+
+            # Create the new changelog entry as a JSON object
+            NEW_CHANGELOG_ENTRY=$(jq -n \
+              --arg version "$VERSION" \
+              --arg markdown "$CHANGELOG_BODY" \
+              '[
+                { "class": "DepictionSubheaderView", "title": ("Version " + $version) },
+                { "class": "DepictionMarkdownView", "markdown": $markdown },
+                { "class": "DepictionSeparatorView" }
+              ]')
+              
+            # Update the depiction file: set latest version and prepend new changelog
+            jq --arg version "$VERSION" --argjson newEntry "$NEW_CHANGELOG_ENTRY" \
+              '
+                (.tabs[] | select(.tabname == "Details").views[] | select(.class == "DepictionTableTextView" and .title == "Latest Version").text) = $version |
+                (.tabs[] | select(.tabname == "Changelog").views) |= (if . and (.[0].markdown | contains("No changelog information available")) then $newEntry else $newEntry + . end)
+              ' \
+              repo/sileo-depiction.json > repo/sileo-depiction.json.tmp && mv repo/sileo-depiction.json.tmp repo/sileo-depiction.json
+          else
+            echo "sileo-depiction.json not found, skipping update."
+          fi
+          
+      - name: Update APT Repository Files
+        uses: docker://debian:stable-slim
+        with:
+          entrypoint: /bin/bash
+          args: -c "set -e && apt-get update && apt-get install -y dpkg-dev bzip2 apt-utils && cd /github/workspace/repo && dpkg-scanpackages --multiversion . > Packages && bzip2 -k -f Packages && apt-ftparchive release . > Release"
+
+      - name: Commit and Push to gh-pages
+        run: |
+          cd repo
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "github-actions@github.com"
+          
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes to the repository. Nothing to commit."
+          else
+            git add .
+            TAG_NAME=${GITHUB_REF#refs/tags/}
+            git commit -m "Update APT repo for release $TAG_NAME"
+            git push
+            echo "Successfully updated the APT repository."
+          fi
+
+      - name: APT Update Summary
+        run: |
+          echo "## 📦 APT Repository Updated" >> $GITHUB_STEP_SUMMARY
+          echo "The \`gh-pages\` branch has been updated with the latest package." >> $GITHUB_STEP_SUMMARY
