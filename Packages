@@ -1,62 +1,66 @@
-Package: com.kunihir0.wattmaster
+Package: com.kunihir0.wattmaster-roothide
 Version: 1.0.0
 Architecture: iphoneos-arm64e
 Maintainer: kunihir0
 Installed-Size: 204
 Depends: mobilesubstrate (>= 0.9.5000)
+Provides: com.kunihir0.wattmaster
 Filename: ./debs/com.kunihir0.wattmaster-1.0.0-roothide.deb
-Size: 13134
-MD5sum: a50646266aa7ee21a5574651df91b36d
-SHA1: 49a345a0546dea500d87a04dd27a6595a51d7ce4
-SHA256: 51a52dbb2add8a395c2c938231360d4fcbe6410af4f32d774a03ab9c3158e318
+Size: 13166
+MD5sum: 5e80c970f9badbe8a9d8ba63ead52468
+SHA1: 1403cca2923b5898a867b4a0e7e7fe83f49dc482
+SHA256: 2b181695c462e7c85f38d0fb980dcf9835eb2c7ce17f90cf2af9600843aa3abb
 Section: Tweaks
 Description: Wattpad Deshitify with QOL improvements
 Author: kunihir0
 Name: WattMaster
 
-Package: com.kunihir0.wattmaster
-Version: 1.0.0
-Architecture: iphoneos-arm64
-Maintainer: kunihir0
-Installed-Size: 204
-Depends: mobilesubstrate (>= 0.9.5000)
-Filename: ./debs/com.kunihir0.wattmaster-1.0.0-rootless.deb
-Size: 13194
-MD5sum: 9daefda4a319652384ce017421c88edb
-SHA1: dfa0b5823716ea728339f31c58fb3a946df12543
-SHA256: 0d288344f8aa9cf2043c5b94b631819735068608113686afcbadb81bd3cd4fbf
-Section: Tweaks
-Description: Wattpad Deshitify with QOL improvements
-Author: kunihir0
-Name: WattMaster
-
-Package: com.kunihir0.wattmaster
+Package: com.kunihir0.wattmaster-roothide-debug
 Version: 1.0.0-1+debug
 Architecture: iphoneos-arm64e
 Maintainer: kunihir0
 Installed-Size: 264
 Depends: mobilesubstrate (>= 0.9.5000)
+Provides: com.kunihir0.wattmaster
 Filename: ./debs/com.kunihir0.wattmaster-1.0.0-roothide-debug.deb
-Size: 18880
-MD5sum: 7ca9e79a41e55b879fe28d13a548303b
-SHA1: 5bb08c5b9d1778a0008764ae3b741dad0d3f74c3
-SHA256: 56e6054a1f424d73e78905e05e12ad57b8d65e9f5b6ded7c4ea69350ea2ed098
+Size: 18902
+MD5sum: e0e084cdc9c924e5ff21a3c9a7269926
+SHA1: ba7e3546114443cb8a8cb7a11f3e837593d80ae3
+SHA256: d43a0fab239d8b46cdb7b6de4ab6a9a0240bca7728623226fc690bc6e7b73723
 Section: Tweaks
 Description: Wattpad Deshitify with QOL improvements
 Author: kunihir0
 Name: WattMaster
 
-Package: com.kunihir0.wattmaster
+Package: com.kunihir0.wattmaster-rootless
+Version: 1.0.0
+Architecture: iphoneos-arm64
+Maintainer: kunihir0
+Installed-Size: 204
+Depends: mobilesubstrate (>= 0.9.5000)
+Provides: com.kunihir0.wattmaster
+Filename: ./debs/com.kunihir0.wattmaster-1.0.0-rootless.deb
+Size: 13190
+MD5sum: 6bc1e8d712638c1ebed64b6f6faa5143
+SHA1: 48e03d88a378c23179c310f15a263d63b87f18ff
+SHA256: b27cb97beed496cda3bb77b997e4611a2d86b94af21f0228e45791f768f82d33
+Section: Tweaks
+Description: Wattpad Deshitify with QOL improvements
+Author: kunihir0
+Name: WattMaster
+
+Package: com.kunihir0.wattmaster-rootless-debug
 Version: 1.0.0-1+debug
 Architecture: iphoneos-arm64
 Maintainer: kunihir0
 Installed-Size: 264
 Depends: mobilesubstrate (>= 0.9.5000)
+Provides: com.kunihir0.wattmaster
 Filename: ./debs/com.kunihir0.wattmaster-1.0.0-rootless-debug.deb
-Size: 18948
-MD5sum: b9ee04cbb890dbfcd790a94e300fa895
-SHA1: 161e1f7a52306e62e5954a6318d057d33a29e8ca
-SHA256: 27c2a22d65514390342f884265851bb8ddb3bca9c2d5f99c1f850a3b6bd09cff
+Size: 18960
+MD5sum: 6ec3383d66257fc656c83613cab5e94e
+SHA1: 7daefd02d5802d043b995234c0781f2940312b95
+SHA256: 5f5e3f92d1a85cf7bfd4cdfd6e5062ac34a1a90db3e5bbdebad6324b4aa18f0a
 Section: Tweaks
 Description: Wattpad Deshitify with QOL improvements
 Author: kunihir0
