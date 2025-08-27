@@ -1,0 +1,16 @@
+Package: com.kunihir0.wattmaster
+Version: 1.0.0
+Architecture: iphoneos-arm64
+Maintainer: kunihir0
+Installed-Size: 204
+Depends: mobilesubstrate (>= 0.9.5000)
+Filename: ./debs/com.kunihir0.wattmaster-1.0.0-rootless.deb
+Size: 13214
+MD5sum: 204edb9440a2022a7f2802225aea80f9
+SHA1: 558d5d451ce9117b12bf3560dcad6bd6a7210d19
+SHA256: 78ee74539c26c83b3acb2165ce8ee4c4e1feeba43c78fb77ed92b4e07ae7415d
+Section: Tweaks
+Description: Wattpad Deshitify with QOL improvements
+Author: kunihir0
+Name: WattMaster
+
