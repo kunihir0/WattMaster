@@ -238,17 +238,22 @@ jobs:
           RELEASE_DATA=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             "https://api.github.com/repos/${{ github.repository }}/releases/tags/$TAG_NAME")
             
-          # Look for the main rootless release .deb file
-          DEB_URL=$(echo "$RELEASE_DATA" | jq -r '.assets[] | select(.name | endswith("-rootless.deb")) | .browser_download_url')
+          # Get all .deb file URLs from the release
+          DEB_URLS=$(echo "$RELEASE_DATA" | jq -r '.assets[] | select(.name | endswith(".deb")) | .browser_download_url')
           
-          if [ -z "$DEB_URL" ] || [ "$DEB_URL" = "null" ]; then
-            echo "No rootless release .deb file found in the release assets."
+          if [ -z "$DEB_URLS" ]; then
+            echo "No .deb files found in the release assets."
             echo "Available assets:"
             echo "$RELEASE_DATA" | jq -r '.assets[] | "- " + .name'
             exit 1
           fi
-          
-          echo "deb_url=$DEB_URL" >> $GITHUB_OUTPUT
+
+          # Use a heredoc to pass the multi-line string of URLs
+          cat << EOF >> $GITHUB_OUTPUT
+          deb_urls<<DEB_URLS_EOF
+          $DEB_URLS
+          DEB_URLS_EOF
+          EOF
 
           # Extract release body for changelog
           RELEASE_BODY=$(echo "$RELEASE_DATA" | jq -r '.body // ""')
@@ -256,11 +261,16 @@ jobs:
           echo "$RELEASE_BODY" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
-      - name: Download .deb from Release
+      - name: Download all .deb files from Release
         run: |
-          echo "Downloading .deb from ${{ steps.release_info.outputs.deb_url }}"
+          echo "Downloading all .deb files from the release..."
           mkdir -p repo/debs
-          curl -L "${{ steps.release_info.outputs.deb_url }}" -o "repo/debs/$(basename "${{ steps.release_info.outputs.deb_url }}")"
+          while read -r url; do
+            if [ -n "$url" ]; then
+              echo "Downloading $url"
+              curl -L "$url" -o "repo/debs/$(basename "$url")"
+            fi
+          done <<< "${{ steps.release_info.outputs.deb_urls }}"
 
       - name: Update Sileo Depiction File
         run: |
