@@ -38,6 +38,10 @@ jobs:
         
       - name: Install Theos (Roothide)
         run: |
+          echo "Setting up Theos directory..."
+          sudo mkdir -p /opt/theos
+          sudo chown -R $(whoami) /opt/theos
+          
           echo "Installing Theos to /opt/theos..."
           # The installer script will use this path if THEOS is set
           export THEOS=/opt/theos
