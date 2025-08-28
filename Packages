@@ -1,3 +1,71 @@
+Package: com.kunihir0.vscoplus-roothide
+Version: 1.0.0
+Architecture: iphoneos-arm64e
+Maintainer: kunihir0
+Installed-Size: 76
+Depends: mobilesubstrate (>= 0.9.5000)
+Provides: com.kunihir0.vscoplus
+Filename: ./debs/com.kunihir0.vscoplus-1.0.0-roothide.deb
+Size: 12416
+MD5sum: 40bfc3dc750e7c867a820e97f45dafd4
+SHA1: 3dd96b31696d8a8a954a4f6bc5b8ce295a1bb2fc
+SHA256: 0a0e968073aa7cb50680b12710d9269214945109d041f2415c555aa96bb0baff
+Section: Tweaks
+Description: Disable Ad and Enable Photo savings
+Author: kunihir0
+Name: VscoPlus
+
+Package: com.kunihir0.vscoplus-roothide-debug
+Version: 1.0.0-1+debug
+Architecture: iphoneos-arm64e
+Maintainer: kunihir0
+Installed-Size: 112
+Depends: mobilesubstrate (>= 0.9.5000)
+Provides: com.kunihir0.vscoplus
+Filename: ./debs/com.kunihir0.vscoplus-1.0.0-roothide-debug.deb
+Size: 19424
+MD5sum: f23a1af74f8b766434aeb68be7a9a9af
+SHA1: 47d891a50c995dbba80a8ebfd3ed8e27ad59d454
+SHA256: 55d0f901a7c9cdd8f2d8923197c15189892430a9c2a3f5b66f0c907337490249
+Section: Tweaks
+Description: Disable Ad and Enable Photo savings
+Author: kunihir0
+Name: VscoPlus
+
+Package: com.kunihir0.vscoplus-rootless
+Version: 1.0.0
+Architecture: iphoneos-arm64
+Maintainer: kunihir0
+Installed-Size: 76
+Depends: mobilesubstrate (>= 0.9.5000)
+Provides: com.kunihir0.vscoplus
+Filename: ./debs/com.kunihir0.vscoplus-1.0.0-rootless.deb
+Size: 12496
+MD5sum: dd803462de2783e03c03d6cb66bccc6e
+SHA1: 17d673a0c902451695cafcd2bc6569a86e9b546e
+SHA256: 4e3042a4632031c41845d91ce1c74d0b9dfafb6d74d6e41ea83b3f728741908e
+Section: Tweaks
+Description: Disable Ad and Enable Photo savings
+Author: kunihir0
+Name: VscoPlus
+
+Package: com.kunihir0.vscoplus-rootless-debug
+Version: 1.0.0-1+debug
+Architecture: iphoneos-arm64
+Maintainer: kunihir0
+Installed-Size: 112
+Depends: mobilesubstrate (>= 0.9.5000)
+Provides: com.kunihir0.vscoplus
+Filename: ./debs/com.kunihir0.vscoplus-1.0.0-rootless-debug.deb
+Size: 19488
+MD5sum: 6053705dc2c43ad13569d89d5068eda1
+SHA1: 2ab8ac47e5f8f32ebf5eb073b7802b12612106f5
+SHA256: 3e9bb44bc9511a3be22374d220d41c357bb79d988f9e213e54bc34ee69d2ab54
+Section: Tweaks
+Description: Disable Ad and Enable Photo savings
+Author: kunihir0
+Name: VscoPlus
+
 Package: com.kunihir0.wattmaster-roothide
 Version: 1.0.0
 Architecture: iphoneos-arm64e
