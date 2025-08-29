@@ -21,6 +21,13 @@ WattMaster is a tweak for the Wattpad iOS app that enhances the user experience 
 
 ## Installation
 
+### Apt Repo
+Add as source either in Zebra/Sileo
+
+```
+https://kunihir0.github.io/WattMaster/
+```
+
 ### From Release
 
 If you don't want to build the package yourself, you can download the latest `.deb` file from the [Releases](https://github.com/kunihir0/WattMaster/releases) page.
