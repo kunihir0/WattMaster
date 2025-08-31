@@ -5,23 +5,6 @@ Maintainer: kunihir0
 Installed-Size: 300
 Depends: mobilesubstrate
 Provides: com.kunihir0.bhtiktok++
-Filename: ./debs/com.kunihir0.bhtiktok%2B%2B-1.5.0-roothide.deb
-Size: 59732
-MD5sum: a897a79ad82067b55df2788e711c99ca
-SHA1: e765a6d21899dc3b365afeaa13425c7017936f47
-SHA256: 633efa5b0962a3c8801ff3230af02209c35cc07773a7a4f23e62e7a594366500
-Section: Tweaks
-Description: An awesome tweak for TikTok!
-Author: kunihir0
-Name: BHTikTok++
-
-Package: com.kunihir0.bhtiktok++-roothide
-Version: 1.5.0
-Architecture: iphoneos-arm64e
-Maintainer: kunihir0
-Installed-Size: 300
-Depends: mobilesubstrate
-Provides: com.kunihir0.bhtiktok++
 Filename: ./debs/com.kunihir0.bhtiktok++-1.5.0-roothide.deb
 Size: 59626
 MD5sum: 2dc5b7f30476a821ab5e63611671b0a5
@@ -40,27 +23,10 @@ Installed-Size: 504
 Depends: mobilesubstrate
 Provides: com.kunihir0.bhtiktok++
 Filename: ./debs/com.kunihir0.bhtiktok++-1.5.0-roothide-debug.deb
-Size: 100338
-MD5sum: 581fe92feba0d8d0042ce0570dcb9345
-SHA1: 7ec04666e17fb36e3c2575a1c991efd1e32e46ad
-SHA256: 98c257b6fc7a231a10ac2ca08a06a7e5a6dcbd445569c74082fd2d68251cf6ce
-Section: Tweaks
-Description: An awesome tweak for TikTok!
-Author: kunihir0
-Name: BHTikTok++
-
-Package: com.kunihir0.bhtiktok++-roothide-debug
-Version: 1.5.0-1+debug
-Architecture: iphoneos-arm64e
-Maintainer: kunihir0
-Installed-Size: 504
-Depends: mobilesubstrate
-Provides: com.kunihir0.bhtiktok++
-Filename: ./debs/com.kunihir0.bhtiktok%2B%2B-1.5.0-roothide-debug.deb
-Size: 100344
-MD5sum: 80ae0b4e713d50f97e6c352c97a13714
-SHA1: 2e0211f2f3647f073df7d4464adfcc54153bb8be
-SHA256: 418ca8de6b75bac00191dd77e447c5b23de7dcfa4c8a122d5f36168111788c94
+Size: 100310
+MD5sum: 9195f6d1ab2f79b4e61b075ea0dfa196
+SHA1: 675e64519c3e3a29d5c030c6acbb14122933fc00
+SHA256: 4262ae96b178da76657ad417fac7995d66ffcc5fba5783a99eefe9151773f512
 Section: Tweaks
 Description: An awesome tweak for TikTok!
 Author: kunihir0
@@ -83,23 +49,6 @@ Description: An awesome tweak for TikTok!
 Author: kunihir0
 Name: BHTikTok++
 
-Package: com.kunihir0.bhtiktok++-rootless
-Version: 1.5.0
-Architecture: iphoneos-arm64
-Maintainer: kunihir0
-Installed-Size: 300
-Depends: mobilesubstrate
-Provides: com.kunihir0.bhtiktok++
-Filename: ./debs/com.kunihir0.bhtiktok%2B%2B-1.5.0-rootless.deb
-Size: 59772
-MD5sum: 51e095326e1f5a1d4f6d457cf6fb15cc
-SHA1: fa9425a9598700ddceb7845ed015f7a8de51c82f
-SHA256: aa48bd44244c25e1dceb5b9d36be6125d996a375c6109cd2b3973228e0bb3e25
-Section: Tweaks
-Description: An awesome tweak for TikTok!
-Author: kunihir0
-Name: BHTikTok++
-
 Package: com.kunihir0.bhtiktok++-rootless-debug
 Version: 1.5.0-1+debug
 Architecture: iphoneos-arm64
@@ -108,27 +57,10 @@ Installed-Size: 504
 Depends: mobilesubstrate
 Provides: com.kunihir0.bhtiktok++
 Filename: ./debs/com.kunihir0.bhtiktok++-1.5.0-rootless-debug.deb
-Size: 100410
-MD5sum: 689d56e83cf3d86d0702f85fb475b05d
-SHA1: 4848f7ae6c4e3cf98f9c98fb8a755cb47c006eed
-SHA256: 5a45b10b791db78abe46b2130d402d02eccdce638e06a129b8437d4687c19110
-Section: Tweaks
-Description: An awesome tweak for TikTok!
-Author: kunihir0
-Name: BHTikTok++
-
-Package: com.kunihir0.bhtiktok++-rootless-debug
-Version: 1.5.0-1+debug
-Architecture: iphoneos-arm64
-Maintainer: kunihir0
-Installed-Size: 504
-Depends: mobilesubstrate
-Provides: com.kunihir0.bhtiktok++
-Filename: ./debs/com.kunihir0.bhtiktok%2B%2B-1.5.0-rootless-debug.deb
-Size: 100398
-MD5sum: ececad792a28e84fa00f6e1c233c95ab
-SHA1: 0a5d4249d31e3896701b453c42625eaaec042f39
-SHA256: dfd2d1fa8271b1525599f926f53e51fed6ba9ce7dea4e71945b9bace8085cc00
+Size: 100382
+MD5sum: 4a993b9006a33beaefb5b90018382591
+SHA1: 6770666084fbbbdc3f1bd43fe54a21c24321f0ab
+SHA256: 3c30d19592699ee302b40325b7de842cdd1865e221c02cce9f0fa64de9318577
 Section: Tweaks
 Description: An awesome tweak for TikTok!
 Author: kunihir0
