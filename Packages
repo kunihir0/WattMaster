@@ -134,6 +134,78 @@ Description: An awesome tweak for TikTok!
 Author: kunihir0
 Name: BHTikTok++
 
+Package: com.kunihir0.scmusicplus-roothide
+Version: 25.0.0
+Architecture: iphoneos-arm64e
+Maintainer: kunihir0 <kunihiro@tutanota.com>
+Installed-Size: 72
+Depends: mobilesubstrate (>= 0.9.5000)
+Provides: com.kunihir0.scmusicplus
+Filename: ./debs/com.kunihir0.scmusicplus-25.0.0-roothide.deb
+Size: 3156
+MD5sum: c20526b8c313d603ba80ce56e204126e
+SHA1: f222150ff84a1e35e14e14fbb16530ea405b9878
+SHA256: 3d4d3dd301f8aeea7b7468f2f99b30004c9a9c4d40916fbd9a5114af64896808
+Section: Tweaks
+Description: Enhance your SoundCloud experience
+Author: kunihir0
+Depiction: https://rov3r.github.io/depictions/scmusicplus.html
+Name: SCMusicPlus
+
+Package: com.kunihir0.scmusicplus-roothide-debug
+Version: 25.0.0-1+debug
+Architecture: iphoneos-arm64e
+Maintainer: kunihir0 <kunihiro@tutanota.com>
+Installed-Size: 76
+Depends: mobilesubstrate (>= 0.9.5000)
+Provides: com.kunihir0.scmusicplus
+Filename: ./debs/com.kunihir0.scmusicplus-25.0.0-roothide-debug.deb
+Size: 5210
+MD5sum: 8281c14c89207ddff1b3bd017ebedf34
+SHA1: eb87c482afd83d0453fa0cf32a10d20e62f05e41
+SHA256: 6fc20da31887a68d9119db99ee762678e6b2c45b0262b951429aa8116dadd249
+Section: Tweaks
+Description: Enhance your SoundCloud experience
+Author: kunihir0
+Depiction: https://rov3r.github.io/depictions/scmusicplus.html
+Name: SCMusicPlus
+
+Package: com.kunihir0.scmusicplus-rootless
+Version: 25.0.0
+Architecture: iphoneos-arm64
+Maintainer: kunihir0 <kunihiro@tutanota.com>
+Installed-Size: 72
+Depends: mobilesubstrate (>= 0.9.5000)
+Provides: com.kunihir0.scmusicplus
+Filename: ./debs/com.kunihir0.scmusicplus-25.0.0-rootless.deb
+Size: 3226
+MD5sum: 2a4f61137a3f921129bcabc0c91440f5
+SHA1: a580bf59123b1a053905e963ccf475d688b8d966
+SHA256: 84a917c260e272269a8275bb363db2a4c45dae9305585008b185dd833fcdaa2b
+Section: Tweaks
+Description: Enhance your SoundCloud experience
+Author: kunihir0
+Depiction: https://rov3r.github.io/depictions/scmusicplus.html
+Name: SCMusicPlus
+
+Package: com.kunihir0.scmusicplus-rootless-debug
+Version: 25.0.0-1+debug
+Architecture: iphoneos-arm64
+Maintainer: kunihir0 <kunihiro@tutanota.com>
+Installed-Size: 76
+Depends: mobilesubstrate (>= 0.9.5000)
+Provides: com.kunihir0.scmusicplus
+Filename: ./debs/com.kunihir0.scmusicplus-25.0.0-rootless-debug.deb
+Size: 5282
+MD5sum: e9dec4d0560d481d5fc56efc4c37cf20
+SHA1: b1264edd3478652bd4521e43f58ef8180f307b48
+SHA256: 0ca27d6ae8976111d603934b415fc06cb48000b12cf508d1c7f6c74d33574f4f
+Section: Tweaks
+Description: Enhance your SoundCloud experience
+Author: kunihir0
+Depiction: https://rov3r.github.io/depictions/scmusicplus.html
+Name: SCMusicPlus
+
 Package: com.kunihir0.vscoplus-roothide
 Version: 1.0.0
 Architecture: iphoneos-arm64e
