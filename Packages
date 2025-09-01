@@ -342,3 +342,71 @@ Description: Wattpad Deshitify with QOL improvements
 Author: kunihir0
 Name: WattMaster
 
+Package: org.swift.protobuf.swiftprotobuf-roothide
+Version: 1.30.0
+Architecture: iphoneos-arm64e
+Maintainer: eevee
+Installed-Size: 10116
+Provides: org.swift.protobuf.swiftprotobuf
+Filename: ./debs/org.swift.protobuf.swiftprotobuf-1.30.0-roothide.deb
+Size: 1474192
+MD5sum: faa81936fa68f8513c6f9117474cf21e
+SHA1: a1462f1a8ce0723d350dc2f311624af47af973d0
+SHA256: 4df8dd8439b70f6ee103e6f7c93b1431a0082f3393e9b06b30ee79b4de17ad6d
+Section: System
+Description: Plugin and runtime library for using protobuf with Swift
+Tag: role::developer
+Author: eevee
+Name: SwiftProtobuf
+
+Package: org.swift.protobuf.swiftprotobuf-roothide-debug
+Version: 1.30.0-1+debug
+Architecture: iphoneos-arm64e
+Maintainer: eevee
+Installed-Size: 14920
+Provides: org.swift.protobuf.swiftprotobuf
+Filename: ./debs/org.swift.protobuf.swiftprotobuf-1.30.0-roothide-debug.deb
+Size: 2737238
+MD5sum: 657a84dc58b9a4291bc10e727729822a
+SHA1: 680ed73c458b0b2cbf8b14ae39a1c0fdf373f878
+SHA256: 66ede495784cb9ab114c6107351086ace642731f289dc2d2f099ecea50314012
+Section: System
+Description: Plugin and runtime library for using protobuf with Swift
+Tag: role::developer
+Author: eevee
+Name: SwiftProtobuf
+
+Package: org.swift.protobuf.swiftprotobuf-rootless
+Version: 1.30.0
+Architecture: iphoneos-arm64
+Maintainer: eevee
+Installed-Size: 10116
+Provides: org.swift.protobuf.swiftprotobuf
+Filename: ./debs/org.swift.protobuf.swiftprotobuf-1.30.0-rootless.deb
+Size: 1474398
+MD5sum: e9010a50033c92d2151be8cc871fb576
+SHA1: 0451502db49d6c2501b8b54f9acd345aed293f8e
+SHA256: 99883c916e3287a9f42555f276816d9ce734b10aea4ec33094e4b650795d48b3
+Section: System
+Description: Plugin and runtime library for using protobuf with Swift
+Tag: role::developer
+Author: eevee
+Name: SwiftProtobuf
+
+Package: org.swift.protobuf.swiftprotobuf-rootless-debug
+Version: 1.30.0-1+debug
+Architecture: iphoneos-arm64
+Maintainer: eevee
+Installed-Size: 14920
+Provides: org.swift.protobuf.swiftprotobuf
+Filename: ./debs/org.swift.protobuf.swiftprotobuf-1.30.0-rootless-debug.deb
+Size: 2737408
+MD5sum: 3d0d330b83718607435d7e0581d1323b
+SHA1: 45fb90ba2218d0b6c8a3a03aee3d7fdff410a757
+SHA256: 61fd1c89d1afdac3e07f713ba56accebf6203263a0019948336e63bde98ff3fe
+Section: System
+Description: Plugin and runtime library for using protobuf with Swift
+Tag: role::developer
+Author: eevee
+Name: SwiftProtobuf
+
