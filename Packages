@@ -437,11 +437,12 @@ Architecture: iphoneos-arm64
 Maintainer: kunihir0
 Installed-Size: 128
 Recommends: com.kunihir0.doux
+Provides: com.kunihir0.jgprogresshud
 Filename: ./debs/com.kunihir0.jgprogresshud-0.0.3.deb
-Size: 21660
-MD5sum: a7abc5e32f4805b7c4fe6e362a4912cb
-SHA1: a2a90066df5e7b589c18a9f3bdd20972302e836b
-SHA256: 2d3b5689cd9637043f4cbcd71d4ab53c88956058194e18d79099f1c376f152c1
+Size: 21668
+MD5sum: 5ffbba98292f930a8492670320fccdc1
+SHA1: 672147803ce6a55b888310628294327a2f8da7d1
+SHA256: 0ccf6a17e4373f11d87dcbfb53387ce3bc11fdc32f0c306807aea29d96926eb2
 Section: System
 Description: An awesome library of some sort!!
 Tag: role::developer
@@ -471,11 +472,12 @@ Architecture: iphoneos-arm64
 Maintainer: kunihir0
 Installed-Size: 196
 Recommends: com.kunihir0.doux
+Provides: com.kunihir0.jgprogresshud
 Filename: ./debs/com.kunihir0.jgprogresshud-0.0.3-debug.deb
-Size: 37124
-MD5sum: a1f4ab1057b1abdafed541c65fc26731
-SHA1: 2b15411e615b320da72672a13cea47f19f119a4c
-SHA256: ce079974c9a1f7dba671e99bb0fc0f0b79629ae66ec91a43b6204b127823a82a
+Size: 37130
+MD5sum: 550fe346ebc4fad60331c1e5bca2dc7b
+SHA1: cbeaa9af9acaf140a7641969a2efb09af484b2e4
+SHA256: 0ad83d3aa6c8ab0e0ef95d3dd7b73aa6d0adf3637c094fd824731c3f7d520f40
 Section: System
 Description: An awesome library of some sort!!
 Tag: role::developer
@@ -506,12 +508,12 @@ Architecture: iphoneos-arm64e
 Maintainer: kunihir0
 Installed-Size: 128
 Recommends: com.kunihir0.doux
-Provides: com.kunihir0.jgprogresshud, com.kunihir0.jgprogresshud-roothide
+Provides: com.kunihir0.jgprogresshud
 Filename: ./debs/com.kunihir0.jgprogresshud-0.0.3-roothide.deb
-Size: 21674
-MD5sum: 73188aacb609d8117db5176d429b0eeb
-SHA1: 36df937f4e7938862317075e79d131f2371a680c
-SHA256: c12ed251fefd44ae6eb60089d07ecd7570571a8f324e069700ff85a22d58d2fb
+Size: 21630
+MD5sum: 807e37aa9bad2ecf4470473190cad199
+SHA1: dbccf241530b13622145922ea3eebe736ee4e3fc
+SHA256: 740334483b9e48cb2598498e06b7cedfa545862e178dcf03a70789a605896167
 Section: System
 Description: An awesome library of some sort!!
 Tag: role::developer
@@ -542,12 +544,12 @@ Architecture: iphoneos-arm64e
 Maintainer: kunihir0
 Installed-Size: 196
 Recommends: com.kunihir0.doux
-Provides: com.kunihir0.jgprogresshud, com.kunihir0.jgprogresshud-roothide
+Provides: com.kunihir0.jgprogresshud
 Filename: ./debs/com.kunihir0.jgprogresshud-0.0.3-roothide-debug.deb
-Size: 37084
-MD5sum: 9e66cce00f22f277246f38028eab84bb
-SHA1: 9fdb52896828bbeeac76d151c6f00c09a6dcdf5e
-SHA256: 85f85e9ad1d9aeb8566b2f32e4748aa7fb257b88f890b641c95355a809ffdbda
+Size: 37076
+MD5sum: aea0f1076d91efbd6f8d5c018678b70d
+SHA1: 6fbb3158278193f6c99dee520b53d13b9156e1b7
+SHA256: acb5a3ca76175ac3c6efab645b229b1fd954f17957177310885e355b997bfcba
 Section: System
 Description: An awesome library of some sort!!
 Tag: role::developer
