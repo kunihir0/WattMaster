@@ -1,17 +1,17 @@
-Date: Tue, 02 Sep 2025 18:56:55 +0000
+Date: Tue, 02 Sep 2025 19:19:47 +0000
 MD5Sum:
- 8db7efe2bace87250c21e72fb958de9e            23618 Packages
- cdc49511b7e56b3b521ab106631ebd56             5028 Packages.bz2
- a3fd7beab6c863fa62c8b16a5d0a66af               38 Release
+ da74ea9b2db1a7c57256a85347b41eca            26140 Packages
+ 5bbf969d4e7dc0446c3934d54338738b             5393 Packages.bz2
+ 2a1fc3d56abb7911c64571e88c8f708d               38 Release
 SHA1:
- f4b34dbc83f18a33ecb961c454866060ec65ac3c            23618 Packages
- 2be5568f32d8cee7e30300833eeb8f20d4c79b2e             5028 Packages.bz2
- 3496b4108074a9f161c72dd864b9d925ab0a9682               38 Release
+ cac29dfb0b1062941ff35a579a941ad999d402c6            26140 Packages
+ f09846903e76f8fb59e3813e494d4d0f7a0afa56             5393 Packages.bz2
+ 45b0b16577e3743c2202baf18eeb7f00332fac05               38 Release
 SHA256:
- 080eb04076c8717e39e070298677c318bb31cd41f3ea71a023d8df432fa864e8            23618 Packages
- 6154da2e55fb5686fdb469c5e0f71d7b783cbf16209cf3fbf16f5c016b88ae87             5028 Packages.bz2
- ef80b0bd3d6a5b4ec860f8c375240303722422560f2dde1cb702b90c6f621f49               38 Release
+ a57efe979dc8d86bd89bc7499dc24a5e6644280bed6c6e4506e03a3686a56f14            26140 Packages
+ 67f1a4bdfbcf2bbf64cee16d583fae68dddf7bb8032b3d42bb560adfb69066a9             5393 Packages.bz2
+ c0701b6c0c9cfe9ffc95416119ac222cbec7042b0c2eaede1564e36b2e9d2845               38 Release
 SHA512:
- 06d741dbc9a5f8b5cdc003491ef08bfcf2fe242db4a7235ece8ad3d5d0af1e9ab60c3629f375dd04673a097ddfc97ed1203ba14dbeaf6eaa366c24c38ca39241            23618 Packages
- 3e09e9fe26adc3af67ae26f08e473dbefe39221ae497baa2b6a617c54d41940bbd5eb3de2d2e1f5d6df046aed22d17eea8c59acf1aeda54b48606ba9b361faeb             5028 Packages.bz2
- a8ea8b3d6671f2957d6752963791aca612be19b620f77c990aff770cbda52829a433db8360da94a84a8dea6f64d42a520411854c0e7a667d138e4388a05e3fe0               38 Release
+ a176c1cfb310544407494e75369c3d94895a030f219df3f6dbc2a371e67d91cd8812ece5bf5c02037ee172b2871248bc40b183d5c4663a5fd56bec59cb3ffcfe            26140 Packages
+ d0c28d766e8db6586ca6ba9efebc23e01a35f5b2912c89218c1348273b3dbbac3cace35a104b798fa33b4a800524fdd50cea0ea7b52349e3803a5f060431ded7             5393 Packages.bz2
+ ec2cf4abe260d63a84f164fabcef6fce2f7760538bc0a216e5025723ecb5c561fc194d8f52c3b2178e8220d0692a93ff2a3c725c9aa8e0c481d739f00e31c766               38 Release
