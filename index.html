@@ -173,7 +173,7 @@
                                 `<div class="version-history">
                                     <span class="version-history-toggle">Version History</span>
                                     <ul class="version-history-list">
-                                        ${pkg.versions.map(v => `<li>${v.version} (${v.arch})</li>`).join('')}
+                                        ${pkg.versions.map(v => `<li><a href="${v.filename}">${v.version} (${v.arch}) - ${v.type}</a></li>`).join('')}
                                     </ul>
                                 </div>`
                             );
@@ -183,7 +183,7 @@
                             `
                             <div class="package-header">
                                 <h2>${pkg.name}</h2>
-                                <span class="package-version">${pkg.versions[0].version} (${pkg.versions[0].arch})</span>
+                                <a href="${pkg.versions[0].filename}" class="package-version">${pkg.versions[0].version} (${pkg.versions[0].arch}) - ${pkg.versions[0].type}</a>
                             </div>
                             <p class="package-description">${pkg.description}</p>
                             ${versionsHTML}
@@ -215,11 +215,13 @@
                     }
                 });
 
-                if (pkgData['Package'] && !pkgData['Package'].includes('debug')) {
-                    const name = pkgData['Name'] || pkgData['Package'].replace(/-roothide|-rootless/, '');
+                if (pkgData['Package']) {
+                    const name = pkgData['Name'] || pkgData['Package'].replace(/-roothide|-rootless|-debug/, '');
                     const version = pkgData['Version'];
                     const description = pkgData['Description'];
                     const architecture = pkgData['Architecture'];
+                    const packageId = pkgData['Package'];
+                    const filename = pkgData['Filename'];
 
                     let arch = 'unknown';
                     if (architecture === 'iphoneos-arm64') {
@@ -228,6 +230,8 @@
                         arch = 'arm64e';
                     }
 
+                    const type = packageId.includes('debug') ? 'debug' : 'release';
+
                     if (!packages[name]) {
                         packages[name] = {
                             name: name,
@@ -235,13 +239,21 @@
                             versions: []
                         };
                     }
-                    packages[name].versions.push({ version, arch });
+                    packages[name].versions.push({ version, arch, type, filename });
                 }
             });
             
             // Sort versions descending
             for (const pkgName in packages) {
-                packages[pkgName].versions.sort((a, b) => b.version.localeCompare(a.version, undefined, { numeric: true }));
+                packages[pkgName].versions.sort((a, b) => {
+                    // Sort by version first
+                    const versionCompare = b.version.localeCompare(a.version, undefined, { numeric: true });
+                    if (versionCompare !== 0) {
+                        return versionCompare;
+                    }
+                    // Then sort by type ('release' before 'debug')
+                    return a.type.localeCompare(b.type);
+                });
             }
 
             return packages;
