@@ -272,6 +272,78 @@ Description: A collection of enhancements for TikTok.
 Author: kunihir0
 Name: DouX
 
+Package: com.kunihir0.jgprogresshud-roothide
+Version: 0.0.2
+Architecture: iphoneos-arm64e
+Maintainer: kunihir0
+Installed-Size: 128
+Recommends: com.kunihir0.doux
+Provides: com.kunihir0.jgprogresshud
+Filename: ./debs/com.kunihir0.jgprogresshud-0.0.2-roothide.deb
+Size: 21664
+MD5sum: bd4f2a16342c56b19a7ec3efbbb18339
+SHA1: c26ca659cb3bd7147392bc97d8ed69a70a04e453
+SHA256: ee265dfbc0d32e3c9e37d77996de8268659894929dad830dc653534ecf9e8320
+Section: System
+Description: An awesome library of some sort!!
+Tag: role::developer
+Author: kunihir0
+Name: JGProgressHUD
+
+Package: com.kunihir0.jgprogresshud-roothide-debug
+Version: 0.0.2-1+debug
+Architecture: iphoneos-arm64e
+Maintainer: kunihir0
+Installed-Size: 196
+Recommends: com.kunihir0.doux
+Provides: com.kunihir0.jgprogresshud
+Filename: ./debs/com.kunihir0.jgprogresshud-0.0.2-roothide-debug.deb
+Size: 37074
+MD5sum: 8defe6c16058e4cb647d8cc8186a9e0d
+SHA1: 921f69ec39f122a4849c9abbbd544bc16193131d
+SHA256: aa28d4ea3d6d048b1a9f86bd2cbb4f27b658fc8944ffec5c6f09fcea3511568e
+Section: System
+Description: An awesome library of some sort!!
+Tag: role::developer
+Author: kunihir0
+Name: JGProgressHUD
+
+Package: com.kunihir0.jgprogresshud-rootless
+Version: 0.0.2
+Architecture: iphoneos-arm64
+Maintainer: kunihir0
+Installed-Size: 128
+Recommends: com.kunihir0.doux
+Provides: com.kunihir0.jgprogresshud
+Filename: ./debs/com.kunihir0.jgprogresshud-0.0.2-rootless.deb
+Size: 21702
+MD5sum: 5ab4ecbf859c4115a92890a4e5a99d11
+SHA1: 6e7d37df817a898729c78f3bec3031d220ee29f0
+SHA256: 1c3d4653897d392d114b40f57b70488e1124cd655867c3212bb1e84017f48aac
+Section: System
+Description: An awesome library of some sort!!
+Tag: role::developer
+Author: kunihir0
+Name: JGProgressHUD
+
+Package: com.kunihir0.jgprogresshud-rootless-debug
+Version: 0.0.2-1+debug
+Architecture: iphoneos-arm64
+Maintainer: kunihir0
+Installed-Size: 196
+Recommends: com.kunihir0.doux
+Provides: com.kunihir0.jgprogresshud
+Filename: ./debs/com.kunihir0.jgprogresshud-0.0.2-rootless-debug.deb
+Size: 37136
+MD5sum: 0326c543cc88b6ba6838d4e3b722918c
+SHA1: 43a2ab8437c6c9824206c6d59df28f93de1f89eb
+SHA256: 49ea7581bbc77479f8d2bd390ef42e63224311fbd59448d6697f7b4b480807a5
+Section: System
+Description: An awesome library of some sort!!
+Tag: role::developer
+Author: kunihir0
+Name: JGProgressHUD
+
 Package: com.kunihir0.scmusicplus-roothide
 Version: 25.0.0
 Architecture: iphoneos-arm64e
