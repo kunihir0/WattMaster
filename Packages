@@ -342,6 +342,40 @@ Description: A collection of enhancements for TikTok.
 Author: kunihir0
 Name: DouX
 
+Package: com.kunihir0.jgprogresshud
+Version: 0.0.2
+Architecture: iphoneos-arm64
+Maintainer: kunihir0
+Installed-Size: 128
+Recommends: com.kunihir0.doux
+Filename: ./debs/com.kunihir0.jgprogresshud-0.0.2.deb
+Size: 21660
+MD5sum: ba9440e8f1ee5a3a348127f10936a1b6
+SHA1: b35cc72adce47d6234f665f3c0800cdc885543cf
+SHA256: 6364f2f935041baeffa103a3cf2e7b701c703b4e3cd18e1435ef39f142b09963
+Section: System
+Description: An awesome library of some sort!!
+Tag: role::developer
+Author: kunihir0
+Name: JGProgressHUD
+
+Package: com.kunihir0.jgprogresshud-debug
+Version: 0.0.2-1+debug
+Architecture: iphoneos-arm64
+Maintainer: kunihir0
+Installed-Size: 196
+Recommends: com.kunihir0.doux
+Filename: ./debs/com.kunihir0.jgprogresshud-0.0.2-debug.deb
+Size: 37120
+MD5sum: 16c0769326aa6ecd8901ab19dc97a2de
+SHA1: db8dea4c6e12a0e0a62007b2454e8d939f231ed5
+SHA256: 89e8768ff8fcd89c04d632d628e97b87647a8d9cd7813f0e4b1fe2f5af0221d0
+Section: System
+Description: An awesome library of some sort!!
+Tag: role::developer
+Author: kunihir0
+Name: JGProgressHUD
+
 Package: com.kunihir0.jgprogresshud-roothide
 Version: 0.0.2
 Architecture: iphoneos-arm64e
@@ -350,10 +384,10 @@ Installed-Size: 128
 Recommends: com.kunihir0.doux
 Provides: com.kunihir0.jgprogresshud
 Filename: ./debs/com.kunihir0.jgprogresshud-0.0.2-roothide.deb
-Size: 21664
-MD5sum: bd4f2a16342c56b19a7ec3efbbb18339
-SHA1: c26ca659cb3bd7147392bc97d8ed69a70a04e453
-SHA256: ee265dfbc0d32e3c9e37d77996de8268659894929dad830dc653534ecf9e8320
+Size: 21620
+MD5sum: 45615cda41f0c4ada4037c2b6ca6a4cb
+SHA1: 3c3f50f48ddc16408c4954618c0e2767ee820b52
+SHA256: f72804e5ef9f3ea863fb4102098fd75da7927ab6cc5f7a767e80de05880e731d
 Section: System
 Description: An awesome library of some sort!!
 Tag: role::developer
@@ -368,10 +402,10 @@ Installed-Size: 196
 Recommends: com.kunihir0.doux
 Provides: com.kunihir0.jgprogresshud
 Filename: ./debs/com.kunihir0.jgprogresshud-0.0.2-roothide-debug.deb
-Size: 37074
-MD5sum: 8defe6c16058e4cb647d8cc8186a9e0d
-SHA1: 921f69ec39f122a4849c9abbbd544bc16193131d
-SHA256: aa28d4ea3d6d048b1a9f86bd2cbb4f27b658fc8944ffec5c6f09fcea3511568e
+Size: 37084
+MD5sum: d4274bff70c7a3a6ad113b30182f9f70
+SHA1: 078f1a3506bfb28ac344bb48e431b3bc2686e31e
+SHA256: 3274999060c5a404d3808621baaf82ea9b6b4898fc7055269940c6d1521b4310
 Section: System
 Description: An awesome library of some sort!!
 Tag: role::developer
