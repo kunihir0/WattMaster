@@ -431,6 +431,23 @@ Tag: role::developer
 Author: kunihir0
 Name: JGProgressHUD
 
+Package: com.kunihir0.jgprogresshud
+Version: 0.0.3
+Architecture: iphoneos-arm64
+Maintainer: kunihir0
+Installed-Size: 128
+Recommends: com.kunihir0.doux
+Filename: ./debs/com.kunihir0.jgprogresshud-0.0.3.deb
+Size: 21660
+MD5sum: a7abc5e32f4805b7c4fe6e362a4912cb
+SHA1: a2a90066df5e7b589c18a9f3bdd20972302e836b
+SHA256: 2d3b5689cd9637043f4cbcd71d4ab53c88956058194e18d79099f1c376f152c1
+Section: System
+Description: An awesome library of some sort!!
+Tag: role::developer
+Author: kunihir0
+Name: JGProgressHUD
+
 Package: com.kunihir0.jgprogresshud-debug
 Version: 0.0.2-1+debug
 Architecture: iphoneos-arm64
@@ -442,6 +459,23 @@ Size: 37120
 MD5sum: 16c0769326aa6ecd8901ab19dc97a2de
 SHA1: db8dea4c6e12a0e0a62007b2454e8d939f231ed5
 SHA256: 89e8768ff8fcd89c04d632d628e97b87647a8d9cd7813f0e4b1fe2f5af0221d0
+Section: System
+Description: An awesome library of some sort!!
+Tag: role::developer
+Author: kunihir0
+Name: JGProgressHUD
+
+Package: com.kunihir0.jgprogresshud-debug
+Version: 0.0.3-1+debug
+Architecture: iphoneos-arm64
+Maintainer: kunihir0
+Installed-Size: 196
+Recommends: com.kunihir0.doux
+Filename: ./debs/com.kunihir0.jgprogresshud-0.0.3-debug.deb
+Size: 37124
+MD5sum: a1f4ab1057b1abdafed541c65fc26731
+SHA1: 2b15411e615b320da72672a13cea47f19f119a4c
+SHA256: ce079974c9a1f7dba671e99bb0fc0f0b79629ae66ec91a43b6204b127823a82a
 Section: System
 Description: An awesome library of some sort!!
 Tag: role::developer
@@ -466,6 +500,24 @@ Tag: role::developer
 Author: kunihir0
 Name: JGProgressHUD
 
+Package: com.kunihir0.jgprogresshud-roothide
+Version: 0.0.3
+Architecture: iphoneos-arm64e
+Maintainer: kunihir0
+Installed-Size: 128
+Recommends: com.kunihir0.doux
+Provides: com.kunihir0.jgprogresshud, com.kunihir0.jgprogresshud-roothide
+Filename: ./debs/com.kunihir0.jgprogresshud-0.0.3-roothide.deb
+Size: 21674
+MD5sum: 73188aacb609d8117db5176d429b0eeb
+SHA1: 36df937f4e7938862317075e79d131f2371a680c
+SHA256: c12ed251fefd44ae6eb60089d07ecd7570571a8f324e069700ff85a22d58d2fb
+Section: System
+Description: An awesome library of some sort!!
+Tag: role::developer
+Author: kunihir0
+Name: JGProgressHUD
+
 Package: com.kunihir0.jgprogresshud-roothide-debug
 Version: 0.0.2-1+debug
 Architecture: iphoneos-arm64e
@@ -478,6 +530,24 @@ Size: 37084
 MD5sum: d4274bff70c7a3a6ad113b30182f9f70
 SHA1: 078f1a3506bfb28ac344bb48e431b3bc2686e31e
 SHA256: 3274999060c5a404d3808621baaf82ea9b6b4898fc7055269940c6d1521b4310
+Section: System
+Description: An awesome library of some sort!!
+Tag: role::developer
+Author: kunihir0
+Name: JGProgressHUD
+
+Package: com.kunihir0.jgprogresshud-roothide-debug
+Version: 0.0.3-1+debug
+Architecture: iphoneos-arm64e
+Maintainer: kunihir0
+Installed-Size: 196
+Recommends: com.kunihir0.doux
+Provides: com.kunihir0.jgprogresshud, com.kunihir0.jgprogresshud-roothide
+Filename: ./debs/com.kunihir0.jgprogresshud-0.0.3-roothide-debug.deb
+Size: 37084
+MD5sum: 9e66cce00f22f277246f38028eab84bb
+SHA1: 9fdb52896828bbeeac76d151c6f00c09a6dcdf5e
+SHA256: 85f85e9ad1d9aeb8566b2f32e4748aa7fb257b88f890b641c95355a809ffdbda
 Section: System
 Description: An awesome library of some sort!!
 Tag: role::developer
