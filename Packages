@@ -254,6 +254,24 @@ Description: A collection of enhancements for TikTok.
 Author: kunihir0
 Name: DouX
 
+Package: com.kunihir0.doux-roothide
+Version: 1.5.7
+Architecture: iphoneos-arm64e
+Maintainer: kunihir0
+Installed-Size: 312
+Depends: mobilesubstrate,com.kunihir0.jgprogresshud (>= 0.0.3)
+Conflicts: com.kunihir0.bhtiktok++,com.raulsaeed.bhtiktok++,com.bandarhl.bhtiktok
+Provides: com.kunihir0.doux
+Filename: ./debs/com.kunihir0.doux-1.5.7-roothide.deb
+Size: 58994
+MD5sum: 0f01be2661046d672c617e5cef8cfd71
+SHA1: 115542338088e556c8be1680d77117eb24763720
+SHA256: c8553df6a4195ace7974474bd7ba1848d5042f5758e7282eca7b6007cdb179bb
+Section: Tweaks
+Description: A collection of enhancements for TikTok.
+Author: kunihir0
+Name: DouX
+
 Package: com.kunihir0.doux-roothide-debug
 Version: 1.5.4-1+debug
 Architecture: iphoneos-arm64e
@@ -303,6 +321,24 @@ Size: 97762
 MD5sum: 710153f6a8e8a9b62244506a5112ad23
 SHA1: 11ee8f50d25eac3bdbf16baed0e92a0be43cf613
 SHA256: face8a16768eb6bd0b5109a723c4c2b3ee65ac2abe9b45733ce3e9d58d770eab
+Section: Tweaks
+Description: A collection of enhancements for TikTok.
+Author: kunihir0
+Name: DouX
+
+Package: com.kunihir0.doux-roothide-debug
+Version: 1.5.7-1+debug
+Architecture: iphoneos-arm64e
+Maintainer: kunihir0
+Installed-Size: 504
+Depends: mobilesubstrate,com.kunihir0.jgprogresshud (>= 0.0.3)
+Conflicts: com.kunihir0.bhtiktok++,com.raulsaeed.bhtiktok++,com.bandarhl.bhtiktok
+Provides: com.kunihir0.doux
+Filename: ./debs/com.kunihir0.doux-1.5.7-roothide-debug.deb
+Size: 97812
+MD5sum: ef1916e953c9d0e99f7ec2436c4733bc
+SHA1: 34923d4f1969391eb190539c23c7b5c46e2e8675
+SHA256: fe69c6b1b0ba663797da25f1388a2b2652754cdf5a40717b93df7b2cc25903ce
 Section: Tweaks
 Description: A collection of enhancements for TikTok.
 Author: kunihir0
@@ -360,6 +396,24 @@ Description: A collection of enhancements for TikTok.
 Author: kunihir0
 Name: DouX
 
+Package: com.kunihir0.doux-rootless
+Version: 1.5.7
+Architecture: iphoneos-arm64
+Maintainer: kunihir0
+Installed-Size: 312
+Depends: mobilesubstrate,com.kunihir0.jgprogresshud (>= 0.0.3)
+Conflicts: com.kunihir0.bhtiktok++,com.raulsaeed.bhtiktok++,com.bandarhl.bhtiktok
+Provides: com.kunihir0.doux
+Filename: ./debs/com.kunihir0.doux-1.5.7-rootless.deb
+Size: 59136
+MD5sum: 79ba5f337de060003dde0f654d42c5c6
+SHA1: 1794803b88d3218f988fc6b0888a2967e567f4c0
+SHA256: 5d046cb242b4587afb60549ac652d1cb22af6750406103449c13f8e7f41d164c
+Section: Tweaks
+Description: A collection of enhancements for TikTok.
+Author: kunihir0
+Name: DouX
+
 Package: com.kunihir0.doux-rootless-debug
 Version: 1.5.4-1+debug
 Architecture: iphoneos-arm64
@@ -409,6 +463,24 @@ Size: 97814
 MD5sum: 4c22efd0f81c6a7807b6d13dee4552c6
 SHA1: c68b71060ec45b84cbab31e0fc8821d2da643a46
 SHA256: 5dbf3349eb3009815297a58f434abc731c16bc3bd9b21a56f1e610868c5c11de
+Section: Tweaks
+Description: A collection of enhancements for TikTok.
+Author: kunihir0
+Name: DouX
+
+Package: com.kunihir0.doux-rootless-debug
+Version: 1.5.7-1+debug
+Architecture: iphoneos-arm64
+Maintainer: kunihir0
+Installed-Size: 504
+Depends: mobilesubstrate,com.kunihir0.jgprogresshud (>= 0.0.3)
+Conflicts: com.kunihir0.bhtiktok++,com.raulsaeed.bhtiktok++,com.bandarhl.bhtiktok
+Provides: com.kunihir0.doux
+Filename: ./debs/com.kunihir0.doux-1.5.7-rootless-debug.deb
+Size: 97866
+MD5sum: 69a5979bc8242fa3b2e007074c39f029
+SHA1: fb40210841799ddb20284ccdd6a126c754af2617
+SHA256: a5757ccdc0b3ee95a1f21e5ef1b0c3310c9c80e208e6921108c0c9256b4142be
 Section: Tweaks
 Description: A collection of enhancements for TikTok.
 Author: kunihir0
