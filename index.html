@@ -67,6 +67,68 @@
             background-color: #333333;
         }
 
+        .tip {
+            background-color: #1a1a1a;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .tip-header {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .tip-header .fa-lightbulb {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .tip-body ol {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .tip-body li {
+            margin-bottom: 10px;
+        }
+
+        .supported-versions {
+            font-size: 0.9em;
+            color: var(--subtle-text-color);
+            margin-top: 15px;
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .toggle-switch {
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .toggle-switch input {
+            display: none;
+        }
+
+        .toggle-switch span {
+            padding: 8px 15px;
+            border-radius: 20px;
+            background-color: #222;
+            color: #BFD4E1;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-switch input:checked + span {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
         #packages-container {
             display: grid;
             grid-template-columns: 1fr;
@@ -150,56 +212,106 @@
             </div>
         </div>
 
+        <div class="tip">
+            <div class="tip-header">
+                <i class="fas fa-lightbulb"></i> For Non-Jailbroken Users
+            </div>
+            <div class="tip-body">
+                <ol>
+                    <li>Install <a href="https://github.com/opa334/TrollStore" target="_blank">TrollStore</a> on your device.</li>
+                    <li>Install <a href="https://github.com/Lessica/TrollFools" target="_blank">TrollFools</a> with TrollStore.</li>
+                    <li>Download the latest <code>.deb</code> file from our <a href="../../releases">Releases</a> page.</li>
+                    <li>Open TrollFools then Select Wattpad</li>
+                    <li>Inject our .deb packge into Wattpad</li>
+                    <li>Profit!</li>
+                </ol>
+                <p class="supported-versions">Supported versions for TrollStore/TrollFools: 14.0 beta 2 - 16.6.1, 16.7 RC (20H18), 17.0</p>
+            </div>
+        </div>
+
+        <div class="filter-container">
+            <label class="toggle-switch">
+                <input type="radio" name="filter" value="all" checked>
+                <span>All</span>
+            </label>
+            <label class="toggle-switch">
+                <input type="radio" name="filter" value="arm64e">
+                <span>Roothide (arm64e)</span>
+            </label>
+            <label class="toggle-switch">
+                <input type="radio" name="filter" value="arm64">
+                <span>Rootless (arm64)</span>
+            </label>
+        </div>
+
         <div id="packages-container">
             <!-- Packages will be loaded here by JavaScript -->
         </div>
     </div>
 
     <script>
+        let allPackages = {};
+
         document.addEventListener('DOMContentLoaded', () => {
             fetch('Packages')
                 .then(response => response.text())
                 .then(text => {
-                    const packages = parsePackages(text);
-                    const container = document.getElementById('packages-container');
-                    for (const pkgName in packages) {
-                        const pkg = packages[pkgName];
-                        const card = document.createElement('div');
-                        card.className = 'package-card';
+                    allPackages = parsePackages(text);
+                    renderPackages('all');
 
-                        let versionsHTML = '';
-                        if (pkg.versions.length > 1) {
-                            versionsHTML = (
-                                `<div class="version-history">
-                                    <span class="version-history-toggle">Version History</span>
-                                    <ul class="version-history-list">
-                                        ${pkg.versions.map(v => `<li><a href="${v.filename}">${v.version} (${v.arch}) - ${v.type}</a></li>`).join('')}
-                                    </ul>
-                                </div>`
-                            );
-                        }
-
-                        card.innerHTML = (
-                            `
-                            <div class="package-header">
-                                <h2>${pkg.name}</h2>
-                                <a href="${pkg.versions[0].filename}" class="package-version">${pkg.versions[0].version} (${pkg.versions[0].arch}) - ${pkg.versions[0].type}</a>
-                            </div>
-                            <p class="package-description">${pkg.description}</p>
-                            ${versionsHTML}
-                        `
-                        );
-                        container.appendChild(card);
-                    }
-
-                    document.querySelectorAll('.version-history-toggle').forEach(toggle => {
-                        toggle.addEventListener('click', () => {
-                            const list = toggle.nextElementSibling;
-                            list.style.display = list.style.display === 'none' ? 'block' : 'none';
+                    document.querySelectorAll('input[name="filter"]').forEach(radio => {
+                        radio.addEventListener('change', (event) => {
+                            renderPackages(event.target.value);
                         });
                     });
                 });
         });
+
+        function renderPackages(filter) {
+            const container = document.getElementById('packages-container');
+            container.innerHTML = ''; // Clear existing packages
+
+            for (const pkgName in allPackages) {
+                const pkg = allPackages[pkgName];
+                const filteredVersions = pkg.versions.filter(v => filter === 'all' || v.arch === filter);
+
+                if (filteredVersions.length > 0) {
+                    const card = document.createElement('div');
+                    card.className = 'package-card';
+
+                    let versionsHTML = '';
+                    if (filteredVersions.length > 1) {
+                        versionsHTML = (
+                            `<div class="version-history">
+                                <span class="version-history-toggle">Version History</span>
+                                <ul class="version-history-list">
+                                    ${filteredVersions.map(v => `<li><a href="${v.filename}">${v.version} (${v.arch}) - ${v.type}</a></li>`).join('')}
+                                </ul>
+                            </div>`
+                        );
+                    }
+
+                    card.innerHTML = (
+                        `
+                        <div class="package-header">
+                            <h2>${pkg.name}</h2>
+                            <a href="${filteredVersions[0].filename}" class="package-version">${filteredVersions[0].version} (${filteredVersions[0].arch}) - ${filteredVersions[0].type}</a>
+                        </div>
+                        <p class="package-description">${pkg.description}</p>
+                        ${versionsHTML}
+                    `
+                    );
+                    container.appendChild(card);
+                }
+            }
+
+            document.querySelectorAll('.version-history-toggle').forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const list = toggle.nextElementSibling;
+                    list.style.display = list.style.display === 'none' ? 'block' : 'none';
+                });
+            });
+        }
 
         function parsePackages(text) {
             const packages = {};
